@@ -84,4 +84,5 @@ public class Automovil {
     public void setCantPuertas(int cantPuertas) {
         this.cantPuertas = cantPuertas;
     }
+
 }

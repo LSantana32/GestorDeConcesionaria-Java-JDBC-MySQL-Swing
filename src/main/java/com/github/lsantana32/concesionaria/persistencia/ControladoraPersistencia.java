@@ -9,4 +9,8 @@ public class ControladoraPersistencia {
     public void agregarAutomovil(Automovil auto) {
         conexion.darDeAlta(auto);
     }
+
+    public Automovil consultarAutomovil(Automovil unAuto) {
+        return conexion.consultar(unAuto);
+    }
 }

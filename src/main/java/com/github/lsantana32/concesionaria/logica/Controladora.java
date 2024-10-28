@@ -19,4 +19,16 @@ public class Controladora {
         cp.agregarAutomovil(auto);
     }
     
+    public Automovil consultarAutomovil (String unaPatente){
+        Automovil auto = new Automovil();
+        auto.setPatente(unaPatente);
+        return cp.consultarAutomovil(auto);
+    }
+
+    public void editarAutomovil(String modelo, String marca, String motor, String color, String patente, int cantPuertas) {
+
+    }
+    
+    
+    
 }
