@@ -26,7 +26,14 @@ public class Controladora {
     }
 
     public void editarAutomovil(String modelo, String marca, String motor, String color, String patente, int cantPuertas) {
-
+        Automovil auto = new Automovil();
+        auto.setModelo(modelo);
+        auto.setMarca(marca);
+        auto.setMotor(motor);
+        auto.setColor(color);
+        auto.setPatente(patente);
+        auto.setCantPuertas(cantPuertas);
+        cp.editarAutomovil(auto);
     }
     
     

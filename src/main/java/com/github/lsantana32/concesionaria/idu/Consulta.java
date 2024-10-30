@@ -8,9 +8,11 @@ import java.sql.SQLException;
 public class Consulta extends javax.swing.JFrame {
 
     Controladora controladora= new Controladora();
+    private final CEB ceb;
     
-    public Consulta() {
+    public Consulta(CEB ceb) {
         initComponents();
+        this.ceb=ceb;
     }
 
 
@@ -34,6 +36,7 @@ public class Consulta extends javax.swing.JFrame {
         txtCantPuertas = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         txtPatente = new javax.swing.JTextField();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,6 +45,13 @@ public class Consulta extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Ingrese su patente:");
+
+        txtModelo.setEditable(false);
+        txtModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtModeloActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("CantPuertas:");
@@ -57,6 +67,12 @@ public class Consulta extends javax.swing.JFrame {
             }
         });
 
+        txtMarca.setEditable(false);
+
+        txtMotor.setEditable(false);
+
+        txtColor.setEditable(false);
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Motor:");
 
@@ -71,8 +87,18 @@ public class Consulta extends javax.swing.JFrame {
             }
         });
 
+        txtCantPuertas.setEditable(false);
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("CONSULTA DE AUTOMÓVILES");
+
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,8 +124,11 @@ public class Consulta extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel7))
                         .addGap(6, 6, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCantPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtCantPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnSalir))
                             .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -149,8 +178,9 @@ public class Consulta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txtCantPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                    .addComponent(txtCantPuertas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,6 +205,15 @@ public class Consulta extends javax.swing.JFrame {
         txtPatente.setText(null);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtModeloActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.setVisible(false);
+        ceb.setVisible(false);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     private void settearTextoEnNull(){
         txtModelo.setText(null);
         txtMarca.setText(null);
@@ -187,6 +226,7 @@ public class Consulta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -85,7 +85,7 @@ public class CEB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        Editar editar = new Editar();
+        Editar editar = new Editar(this);
         editar.setVisible(true);
         editar.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -95,7 +95,7 @@ public class CEB extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBajaActionPerformed
 
     private void btnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaActionPerformed
-        Consulta consulta = new Consulta();
+        Consulta consulta = new Consulta(this);
         consulta.setVisible(true);
         consulta.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnConsultaActionPerformed

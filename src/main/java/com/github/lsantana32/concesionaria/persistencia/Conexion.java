@@ -56,4 +56,20 @@ public class Conexion {
             throw new RuntimeException(e);
         }
     }
+
+    public void editarAutimovil(Automovil auto) {
+        try(Connection conexion = DriverManager.getConnection(URL,USER,PASSWORD);
+            PreparedStatement ps = conexion.prepareStatement("UPDATE automoviles SET modelo=? , marca=? , motor=? , color = ? , cantPuertas=? WHERE patente=?")){
+            ps.setString(1, auto.getModelo());
+            ps.setString(2, auto.getMarca());
+            ps.setString(3, auto.getMotor());
+            ps.setString(4, auto.getColor());
+            ps.setInt(5, auto.getCantPuertas());
+            ps.setString(6, auto.getPatente());
+            ps.executeUpdate();
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+            
+    }
 }
