@@ -1,8 +1,6 @@
 package com.github.lsantana32.concesionaria.persistencia;
 
-import com.github.lsantana32.concesionaria.idu.Principal;
 import com.github.lsantana32.concesionaria.logica.Automovil;
-import com.mysql.cj.protocol.Resultset;
 import io.github.cdimascio.dotenv.Dotenv;
 
 import java.sql.*;
@@ -71,5 +69,15 @@ public class Conexion {
             throw new RuntimeException(e);
         }
             
+    }
+
+    void eliminarAutomovil(Automovil auto) {
+        try(Connection conexion = DriverManager.getConnection(URL,USER,PASSWORD);
+            PreparedStatement ps = conexion.prepareStatement("DELETE FROM automoviles WHERE patente = ?")) {
+            ps.setString(1, auto.getPatente());
+            ps.executeUpdate();
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
     }
 }

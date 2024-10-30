@@ -35,6 +35,12 @@ public class Controladora {
         auto.setCantPuertas(cantPuertas);
         cp.editarAutomovil(auto);
     }
+
+    public void eliminarAutomovil(String unaPatente) {
+        Automovil auto = new Automovil();
+        auto.setPatente(unaPatente);
+        cp.eliminarAutomovil(auto);
+    }
     
     
     

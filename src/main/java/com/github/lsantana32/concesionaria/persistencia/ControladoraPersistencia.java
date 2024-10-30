@@ -18,4 +18,8 @@ public class ControladoraPersistencia {
     public void editarAutomovil(Automovil auto) {
         conexion.editarAutimovil(auto);
     }
+
+    public void eliminarAutomovil(Automovil auto) {
+        conexion.eliminarAutomovil(auto);
+    }
 }
