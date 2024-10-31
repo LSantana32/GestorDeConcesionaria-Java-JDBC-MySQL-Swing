@@ -35,18 +35,21 @@ public class Conexion {
              PreparedStatement ps = conexion.prepareStatement("SELECT * FROM automoviles WHERE patente=?")
         ) {
             ps.setString(1, unAuto.getPatente());
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String modelo = rs.getString("modelo");
-                String marca = rs.getString("marca");
-                String motor = rs.getString("motor");
-                String color = rs.getString("color");
-                int cantPuertas = rs.getInt("cantPuertas");
-                unAuto.setModelo(modelo);
-                unAuto.setMarca(marca);
-                unAuto.setMotor(motor);
-                unAuto.setColor(color);
-                unAuto.setCantPuertas(cantPuertas);
+            try (ResultSet rs = ps.executeQuery()){
+                if (rs.next()) {
+                    String modelo = rs.getString("modelo");
+                    String marca = rs.getString("marca");
+                    String motor = rs.getString("motor");
+                    String color = rs.getString("color");
+                    int cantPuertas = rs.getInt("cantPuertas");
+                    unAuto.setModelo(modelo);
+                    unAuto.setMarca(marca);
+                    unAuto.setMotor(motor);
+                    unAuto.setColor(color);
+                    unAuto.setCantPuertas(cantPuertas);
+                } else{
+                    throw new SQLException("La patente ingresada no existe");
+                }
             }
             return unAuto;
 
@@ -71,11 +74,11 @@ public class Conexion {
             
     }
 
-    void eliminarAutomovil(Automovil auto) {
+    public void eliminarAutomovil(Automovil auto) {
         try(Connection conexion = DriverManager.getConnection(URL,USER,PASSWORD);
             PreparedStatement ps = conexion.prepareStatement("DELETE FROM automoviles WHERE patente = ?")) {
             ps.setString(1, auto.getPatente());
-            ps.executeUpdate();
+            ps.executeQuery();
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
